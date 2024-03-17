@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up </title>
+    <style>
+       body{
+        background: #f40d0d;
+
+       }
+       .form {
+        background: white;
+        text-align: center;
+        /* margin-left: 300px; */
+        padding: 50px;
+        box-sizing: border-box;
+        font-family: 'Poppins','sans-serif';
+        border-radius: 6px;
+        /* margin-top: 10px; */
+        
+        /* width: 100%; */
+       }
+       .container{
+            height: 100vh;
+            width: 100%;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content:center ;
+            
+           
+       }
+       
+       header{
+        font-size: 28px;
+        text-align: center;
+        color: #f40d0d;
+        font-weight: 600;
+       }
+       
+       
+       form .feild{
+            height: 45px;
+            
+            margin-top: 20px;
+       }
+        
+       .feild button{
+        height: 100%;
+        width: 100%;
+       border: none;
+       border: #f40d0d;
+       background-color: #f40d0d;
+
+       }
+       .feild input{
+        border: 1px solid red;
+        padding: 0 15px;
+        height: 100%;
+        width: 90%;
+        font-size: 20px;
+       }
+
+       .head1{
+        display: flex;
+        margin-left: 1000px;
+        padding: 30px;
+        margin-top: 50px;
+        margin-bottom: 0%;
+       }
+       .head1 h1{
+            font-size: 50px;
+            padding: 30px;
+       }
+    </style>
+</head>
+<body>
+
+    <div class="head1">
+        <div class="img_div" > <img src="instagram-logo.png" alt="" style="height: 200px; width: 200px;"></div>
+        <div> <h1>Instagram</h1> </div>
+    </div>
+    <section class=" container forms">
+        <div class="form login">
+        <form action="#">
+            <header>Sign In </header>
+            <!-- <h1> Enter User Name</h1> -->
+            <div class="feild input">
+                <input type="Username" placeholder="User Name" class="Username ">
+            </div>
+            <div class="feild input">
+                <input type="Email" placeholder="Email" class="Email ">
+            </div>
+            <div class="feild input">
+                <input type="Cell_Phone" placeholder="Cell_Phone" class="Cell_Phone ">
+            </div>
+            <div class="feild input">
+                <input type="password" placeholder="PassWord" class="password ">
+            </div>
+            <div class="feild input">
+                <input type="Confirm_password" placeholder="Confirm_password" class="Confirm_password ">
+            </div>
+            <div class="feild input">
+            <button class="btn">
+                Sign Up
+            </button> </div>
+            <div class=" feild input ">
+            <span>Already Have An Account <a href="#">Sign In </a></span> 
+            </div>
+        </form>
+        </div>
+    </section>
+</body>
+</html>

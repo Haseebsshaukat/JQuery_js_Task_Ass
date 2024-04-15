@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>Sign In </title>
     <style>
        body{
@@ -84,19 +85,20 @@
     </div>
     <section class=" container forms">
         <div class="form login">
-        <form action="#">
+        <form method="get" action="Task1-done.html" onsubmit="return fromValidation()">
             <header>Sign In </header>
             <!-- <h1> Enter User Name</h1> -->
             <div class="feild input">
-                <input type="Username" placeholder="User Name" class="Username ">
+                <input type="Username" placeholder="User Name" id="Username1">
             </div>
             <!-- <h1> Enter Password</h1> -->
             <div class="feild input">
-                <input type="password" placeholder="PassWord" class="password ">
+                <input type="password" placeholder="PassWord" id="password1">
             </div>
             <div class="feild input">
-            <button class="btn">
-                Sign In
+                <!-- <button type="submit" id="f_button">Submit</button> -->
+            <button class="btn" type="submit" id="f_button">
+                SIGN IN
             </button> </div>
             <div class=" feild input ">
             <span>If you Forgot your Password <a href="#">Forgotten Password? </a></span> 
@@ -105,4 +107,36 @@
         </div>
     </section>
 </body>
+<script>
+    function fromValidation(){
+        var user = $("#Username1").val();
+        var pword = $("#password1").val();
+
+        if (user == ""){
+            alert("Enter the username");
+            return false;
+        }else{
+            var user_check = /^[a-zA-Z0-9._-]+$/;
+            if(!user_check.test(user)){
+                alert("Invalid username");
+                return false;
+            }
+        }
+
+        //Validating password
+        //Password must contain atleast one lowercase, uppercase, digit and a special character and must be of 8-15 length
+        if (pword == ""){
+            alert("Enter the password");
+            return false;
+        }else{
+            var pword_check = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@#%!*&_()$^":><".])[a-zA-Z0-9@#%!*&_()$^":><".]{8,15}$/;
+            if(!pword_check.test(pword)){
+                alert("Invalid password! \nPassword must contain atleast one lowercase, uppercase, digit and a special character and must be of 8-15 length");
+                return false;
+            }
+        }
+        return true;
+    }
+</script>
+
 </html>

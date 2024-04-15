@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>Sign Up </title>
     <style>
        body{
         background: #f40d0d;
-
        }
        .form {
         background: white;
@@ -28,8 +28,6 @@
             display: flex;
             align-items: center;
             justify-content:center ;
-            
-           
        }
        
        header{
@@ -83,33 +81,113 @@
     </div>
     <section class=" container forms">
         <div class="form login">
-        <form action="#">
+        <form method="get"
+        action="Task1-done.html"
+        onsubmit="return formValidation()">
             <header>Sign In </header>
             <!-- <h1> Enter User Name</h1> -->
             <div class="feild input">
-                <input type="Username" placeholder="User Name" class="Username ">
+                <input type="Username" placeholder="User Name" id="Username2">
             </div>
             <div class="feild input">
-                <input type="Email" placeholder="Email" class="Email ">
+                <input type="Email" placeholder="Email" id="Email2">
             </div>
             <div class="feild input">
-                <input type="Cell_Phone" placeholder="Cell_Phone" class="Cell_Phone ">
+                <input type="Cell_Phone" placeholder="Cell_Phone" id="Cell_Phone2">
             </div>
             <div class="feild input">
-                <input type="password" placeholder="PassWord" class="password ">
+                <input type="password" placeholder="PassWord" id="password2">
             </div>
             <div class="feild input">
-                <input type="Confirm_password" placeholder="Confirm_password" class="Confirm_password ">
+                <input type="Confirm_password" placeholder="Confirm_password" id="Confirm_password2">
             </div>
             <div class="feild input">
-            <button class="btn">
-                Sign Up
+            <button type="submit" id="f_button">
+                Sign up
             </button> </div>
             <div class=" feild input ">
-            <span>Already Have An Account <a href="#">Sign In </a></span> 
+            <span>Already Have An Account <a href="Ass_Js_Task1.html">Sign In </a></span> 
             </div>
         </form>
         </div>
     </section>
 </body>
+<script>
+    function formValidation() {
+      var u_name = $("#Username2").val();
+      var email = $("#Email2").val();
+      var cell_num = $("#Cell_Phone2").val();
+      var pw = $("#password2").val();
+      var cpw = $("#Confirm_password2").val();
+      
+
+      //Validating name
+      if (u_name === "") {
+        alert("Enter the name");
+        return false;
+      } else {
+        var name_check = /^[a-zA-Z ]+$/;
+        if (!name_check.test(u_name)) {
+          alert("Invalid name! \nName must contain alphabets or space");
+          return false;
+        }
+      }
+
+      //Validating email
+      if (email === "") {
+        alert("Enter the email");
+        return false;
+      } else {
+        var email_check = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,5}$/;
+        if (!email_check.test(email)) {
+          alert("Invalid email! \n Format: 123@exapmle.com");
+          return false;
+        }
+      }
+
+      
+      //Validating phone number
+      if (cell_num === "") {
+        alert("Enter the phone number");
+        return false;
+      } else {
+        var num_check = /^\d{11}$/; //only number and of length 11
+        if (!num_check.test(cell_num)) {
+          alert(
+            "Invalid Phone Number! \n Format: Must contain 11 digits: XXXXXXXXXXX"
+          );
+          return false;
+        }
+      }
+
+      //Validating password
+      //Password must contain at least one lowercase, uppercase, digit, and a special character and must be of 8-15 length
+      if (pw === "") {
+        alert("Enter the password");
+        return false;
+      } else {
+        var pword_check =
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@#%!*&_()$^":><".])[a-zA-Z0-9@#%!*&_()$^":><".]{8,15}$/;
+        if (!pword_check.test(pw)) {
+          alert(
+            "Invalid password! \nPassword must contain at least one lowercase, uppercase, digit, and a special character and must be of 8-15 length"
+          );
+          return false;
+        }
+      }
+
+      //Confirming password
+      if (cpw === "") {
+        alert("Please Confirm Password");
+        return false;
+      }
+      if (pw != cpw) {
+        alert(
+          "Confirm Password does not match entered password!\n Please confirm password again."
+        );
+        return false;
+      }
+      return true;
+    }
+  </script>
 </html>
